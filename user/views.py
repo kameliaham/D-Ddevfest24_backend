@@ -41,12 +41,7 @@ class IsAuthFirstTimeView(APIView):
     permission_classes = [AllowAny]  
 
     def get(self, request):
-        print ("user")
-        print ("user",request.user)
         user = request.user
-        print ("user",request.user)
-        
-
         user_profile = user.userprofile  
 
         if user_profile.first_login:

@@ -84,8 +84,8 @@ class ProfileUpdateSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True, required=True)
     first_name = serializers.CharField(max_length=150, required=True)
     last_name = serializers.CharField(max_length=150, required=True)
-    phone_number = serializers.CharField(max_length=15, required=True)
-    address = serializers.CharField(max_length=255, required=True)
+    phone_number = serializers.CharField(max_length=15, required=False, allow_blank=True)
+    address = serializers.CharField(max_length=255, required=False, allow_blank=True)
 
     class Meta:
         model = User
@@ -98,15 +98,25 @@ class ProfileUpdateSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError(str(e))
         return value
 
-
     def update(self, instance, validated_data):
-        instance.first_name = validated_data['first_name']
-        instance.last_name = validated_data['last_name']
-        instance.phone_number = validated_data['phone_number']
-        instance.address = validated_data['address']
-        instance.set_password(validated_data['password'])  # Ensure the password is hashed
+        # Update required fields
+        instance.first_name = validated_data.get('first_name', instance.first_name)
+        instance.last_name = validated_data.get('last_name', instance.last_name)
+
+        # Update optional fields (phone_number and address)
+        user_profile = instance.userprofile
+        user_profile.phone_number = validated_data.get('phone_number', user_profile.phone_number)
+        user_profile.address = validated_data.get('address', user_profile.address)
+        user_profile.save()
+
+        # Update password
+        password = validated_data.get('password')
+        if password:
+            instance.set_password(password)
+
         instance.save()
         return instance
+
 
 class TaskSerializer(serializers.ModelSerializer):
     assigned_to = serializers.StringRelatedField()  # Display operator's username
