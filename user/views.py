@@ -44,12 +44,8 @@ class IsAuthFirstTimeView(APIView):
         print ("user")
         print ("user",request.user)
         user = request.user
-        if isinstance(user, AnonymousUser):
-            # This ensures that the user is authenticated, otherwise, we return an error
-            return Response({
-                "detail": "User not authenticated. Please login first."
-            }, status=status.HTTP_401_UNAUTHORIZED)
-
+        print ("user",request.user)
+        
 
         user_profile = user.userprofile  
 
