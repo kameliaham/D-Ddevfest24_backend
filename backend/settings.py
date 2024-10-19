@@ -25,11 +25,11 @@ SECRET_KEY = 'django-insecure-y^tc0w@=*m@s!h21d#t=y6i^y+&ist%ip1m8h#59avgr11)hzd
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.ngrok-free.app', 'localhost', '127.0.0.1']
+
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',  
     'user',
     'machine',
-    'django_webhook',
+    'background_task',
 ]
 
 DJANGO_WEBHOOK = {
@@ -50,16 +50,9 @@ DJANGO_WEBHOOK = {
 
 from celery.schedules import timedelta
 
-CELERY_BEAT_SCHEDULE = {
-    'send-machine-data-every-20-seconds': {
-        'task': 'machine.tasks.send_machine_data_webhook',
-        'schedule': timedelta(seconds=20),
-    },
-}
-
-# CELERY_BROKER_URL = 'redis://localhost:6379/0'
-# CELERY_ACCEPT_CONTENT = ['json']
-# CELERY_TASK_SERIALIZER = 'json'
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
 
 CELERY_TIMEZONE = 'Africa/Algiers' 
 CELERY_TASK_TRACK_STARTED = True
