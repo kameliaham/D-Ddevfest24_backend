@@ -45,7 +45,9 @@ INSTALLED_APPS = [
     'channels',
     'alerts',
     'tasks'
-
+    'channels',
+    'alerts',
+    'tasks'
 ]
 
 DJANGO_WEBHOOK = {
