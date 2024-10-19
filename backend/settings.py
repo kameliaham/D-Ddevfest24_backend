@@ -42,12 +42,24 @@ INSTALLED_APPS = [
     'user',
     'machine',
     'background_task',
+    'channels',
 
 ]
 
 DJANGO_WEBHOOK = {
     'MODELS': ['machine.Machine'],  # Subscribe to the 'Machine' model
 }
+
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [("127.0.0.1", 6379)],  
+        },
+    },
+}
+
 
 
 REST_FRAMEWORK = {
@@ -91,7 +103,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'backend.wsgi.application'
-
+ASGI_APPLICATION = 'backend.asgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases

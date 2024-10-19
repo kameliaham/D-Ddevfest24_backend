@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Data Dashboard</title>
+</head>
+<body>
+    <h1>Real-time Machine Data</h1>
+    <div id="data"></div>
+
+    <script>
+        let socket = new WebSocket("ws://127.0.0.1:8000/ws/machine-data/");
+
+        socket.onopen = function(event) {
+            console.log("WebSocket is open now.");
+        };
+
+        socket.onmessage = function(event) {
+            console.log("Message from server: ", event.data);
+
+            // Assuming event.data is JSON
+            const machineData = JSON.parse(event.data);
+            document.getElementById('data').innerHTML = JSON.stringify(machineData, null, 2);
+        };
+
+        socket.onerror = function(error) {
+            console.log("WebSocket Error: ", error);
+        };
+
+        socket.onclose = function(event) {
+            console.log("WebSocket is closed now.");
+        };
+    </script>
+</body>
+</html>
