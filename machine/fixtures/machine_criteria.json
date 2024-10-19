@@ -1,0 +1,138 @@
+{
+    "Welding Robot": {
+        "weld_temperature": {
+            "min": 1500,
+            "max": 1800
+        },
+        "weld_current": {
+            "min": 100,
+            "max": 200
+        },
+        "weld_voltage": {
+            "min": 20,
+            "max": 35
+        },
+        "weld_time": {
+            "min": 300,
+            "max": 600
+        },
+        "pressure_applied": {
+            "min": 800,
+            "max": 1200
+        },
+        "vibration_level": {
+            "min": 0,
+            "max": 1
+        },
+        "power_consumption": {
+            "min": 2,
+            "max": 5
+        }
+    },
+    "Stamping Press": {
+        "force_applied": {
+            "min": 300,
+            "max": 600
+        },
+        "cycle_time": {
+            "min": 5,
+            "max": 15
+        },
+        "vibration_level": {
+            "min": 0,
+            "max": 3
+        },
+        "temperature": {
+            "min": 20,
+            "max": 80
+        },
+        "oil_pressure": {
+            "min": 2,
+            "max": 5
+        },
+        "noise_level": {
+            "min": 70,
+            "max": 90
+        }
+    },
+    "Painting Robot": {
+        "spray_pressure": {
+            "min": 2,
+            "max": 5
+        },
+        "paint_thickness": {
+            "min": 100,
+            "max": 150
+        },
+        "temperature": {
+            "min": 20,
+            "max": 30
+        },
+        "humidity": {
+            "min": 50,
+            "max": 70
+        },
+        "atomizer_speed": {
+            "min": 15000,
+            "max": 25000
+        }
+    },
+    "AGV": {
+        "battery_level": {
+            "min": 20,
+            "max": 100
+        },
+        "load_weight": {
+            "min": 0,
+            "max": 1000
+        },
+        "speed": {
+            "min": 0,
+            "max": 3
+        },
+        "temperature": {
+            "min": 0,
+            "max": 50
+        }
+    },
+    "CNC Milling": {
+        "spindle_speed": {
+            "min": 8000,
+            "max": 15000
+        },
+        "tool_wear_level": {
+            "min": 0,
+            "max": 50
+        },
+        "vibration_level": {
+            "min": 0,
+            "max": 5
+        },
+        "temperature": {
+            "min": 20,
+            "max": 70
+        },
+        "power_consumption": {
+            "min": 5,
+            "max": 15
+        }
+    },
+    "Leak Test Machine": {
+        "test_pressure": {
+            "min": 2,
+            "max": 6
+        },
+        "leak_rate": {
+            "min": 0,
+            "max": 1
+        },
+        "test_duration": {
+            "min": 30,
+            "max": 60
+        },
+        "temperature": {
+            "min": 20,
+            "max": 30
+        }
+    }
+}

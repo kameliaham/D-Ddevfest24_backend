@@ -3,7 +3,7 @@ from django.utils import timezone
 from enum import Enum
 
 
-
+# Define an enumeration for different types of machines.
 class MachineTypes(Enum):
     WELDING_ROBOT = "Welding Robot"
     STAMPING_PRESS = "Stamping Press"
@@ -13,7 +13,7 @@ class MachineTypes(Enum):
     AGV = "AGV"
 
 
-
+# Define the Machine model, representing any type of machine in the system.
 class Machine(models.Model): 
     machine_id = models.CharField(max_length=100, unique=True)
     name = models.CharField(max_length=100)
@@ -26,7 +26,7 @@ class Machine(models.Model):
         return f"{self.name} ({self.machine_id})"
   
 
-
+# Define the MachineData model, which stores data related to any machine.
 class MachineData(models.Model):
     machine = models.ForeignKey(Machine, on_delete=models.CASCADE)
     data = models.JSONField()  

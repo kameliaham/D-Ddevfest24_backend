@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'user',
     'machine',
     'background_task',
+    'channels',
 
 ]
 
@@ -49,14 +50,16 @@ DJANGO_WEBHOOK = {
     'MODELS': ['machine.Machine'],  # Subscribe to the 'Machine' model
 }
 
-from celery.schedules import timedelta
 
-CELERY_BROKER_URL = 'redis://localhost:6379/0'
-CELERY_ACCEPT_CONTENT = ['json']
-CELERY_TASK_SERIALIZER = 'json'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [("127.0.0.1", 6379)],  
+        },
+    },
+}
 
-CELERY_TIMEZONE = 'Africa/Algiers' 
-CELERY_TASK_TRACK_STARTED = True
 
 
 REST_FRAMEWORK = {
@@ -100,7 +103,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'backend.wsgi.application'
-
+ASGI_APPLICATION = 'backend.asgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
