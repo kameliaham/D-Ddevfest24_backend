@@ -40,8 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',  
     'rest_framework_simplejwt',  
     'user',
-    'machine',
-    'django_webhook',
+    'machine'
 ]
 
 DJANGO_WEBHOOK = {

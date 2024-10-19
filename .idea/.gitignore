@@ -1,0 +1,48 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+
+# Virtual environment
+env/
+
+# Compiled Python files
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+
+# Django files
+*.log
+*.pot
+*.mo
+*.sqlite3
+*.db
+*.db-journal
+
+# Environment variables
+.env
+.env.*
+
+# IDE settings
+.idea/
+.vscode/
+
+# Operating system files
+.DS_Store
+*.swp
+Thumbs.db
+desktop.ini
+
+# Node.js dependencies (if using Node.js for frontend)
+node_modules/
+
+# Django static files (if they are auto-generated)
+staticfiles/
+static/
+
+# Celery
+celerybeat-schedule
+
+# Coverage
+htmlcov/
+.coverage
