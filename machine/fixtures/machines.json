@@ -1,0 +1,57 @@
+[
+    {
+      "model": "machine.machine",
+      "pk": 1,
+      "fields": {
+        "machine_id": "welding_robot_006",
+        "name": "Welding Robot 006",
+        "timestamp": "2024-10-18T15:30:00Z"
+      }
+    },
+    {
+      "model": "machine.machine",
+      "pk": 2,
+      "fields": {
+        "machine_id": "stamping_press_001",
+        "name": "Stamping Press 001",
+        "timestamp": "2024-10-18T15:30:00Z"
+      }
+    },
+    {
+      "model": "machine.machine",
+      "pk": 3,
+      "fields": {
+        "machine_id": "painting_robot_002",
+        "name": "Painting Robot 002",
+        "timestamp": "2024-10-18T15:30:00Z"
+      }
+    },
+    {
+      "model": "machine.machine",
+      "pk": 4,
+      "fields": {
+        "machine_id": "leak_test_005",
+        "name": "Leak Test machine 005",
+        "timestamp": "2024-10-18T15:30:00Z"
+      }
+    },
+    {
+      "model": "machine.machine",
+      "pk": 5,
+      "fields": {
+        "machine_id": "cnc_milling_004",
+        "name": "CNC Milling machine 004",
+        "timestamp": "2024-10-18T15:30:00Z"
+      }
+    },
+    {
+      "model": "machine.machine",
+      "pk": 6,
+      "fields": {
+        "machine_id": "agv_003",
+        "name": "AGV 003",
+        "timestamp": "2024-10-18T15:30:00Z"
+      }
+    }
+  ]
+  

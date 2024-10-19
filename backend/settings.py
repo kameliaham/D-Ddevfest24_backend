@@ -41,7 +41,29 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',  
     'user',
     'machine',
+    'django_webhook',
 ]
+
+DJANGO_WEBHOOK = {
+    'MODELS': ['machine.Machine'],  # Subscribe to the 'Machine' model
+}
+
+from celery.schedules import timedelta
+
+CELERY_BEAT_SCHEDULE = {
+    'send-machine-data-every-20-seconds': {
+        'task': 'machine.tasks.send_machine_data_webhook',
+        'schedule': timedelta(seconds=20),
+    },
+}
+
+# CELERY_BROKER_URL = 'redis://localhost:6379/0'
+# CELERY_ACCEPT_CONTENT = ['json']
+# CELERY_TASK_SERIALIZER = 'json'
+
+CELERY_TIMEZONE = 'Africa/Algiers' 
+CELERY_TASK_TRACK_STARTED = True
+
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (

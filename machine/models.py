@@ -1,12 +1,12 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.utils import timezone
 
 
-class Machine(models.Model):  # Remove the 'abstract = True'
+
+class Machine(models.Model): 
     machine_id = models.CharField(max_length=100, unique=True)
     name = models.CharField(max_length=100)
-    type = models.CharField(max_length=100)  # e.g., "Welding Robot", "Stamping Press"
-    timestamp = models.DateTimeField()  # Common timestamp for all machines
+    timestamp = models.DateTimeField()  
 
     def __str__(self):
         return f"{self.name} ({self.machine_id})"
@@ -86,3 +86,11 @@ class LeakTestMachine(Machine):
     seal_condition = models.CharField(max_length=50)  # e.g., "good", "warning", "fail"
     test_cycle_count = models.IntegerField()  # number of test cycles
 
+
+class MachineData(models.Model):
+    machine = models.ForeignKey(Machine, on_delete=models.CASCADE)
+    data = models.JSONField()  
+    timestamp = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return f"Data for {self.machine.name} at {self.timestamp}"
