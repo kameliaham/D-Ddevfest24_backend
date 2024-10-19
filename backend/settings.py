@@ -41,8 +41,8 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',  
     'user',
     'machine',
-    'alerts'
-    'background_task',
+    'alerts',
+    'tasks'
 ]
 
 DJANGO_WEBHOOK = {

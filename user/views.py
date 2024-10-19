@@ -1,16 +1,7 @@
-from django.shortcuts import render
 from rest_framework import generics
-from .serializers import UserSerializer, OperatorRegistrationSerializer, ProfileUpdateSerializer
-from django.contrib.auth.models import User
+from .serializers import OperatorRegistrationSerializer, ProfileUpdateSerializer
 from rest_framework.permissions import AllowAny 
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
-from .permissions import IsManager
-from django.contrib.auth.forms import PasswordChangeForm
-from django.contrib.auth import update_session_auth_hash
-from django.shortcuts import render, redirect
-from django.contrib import messages
-from rest_framework.permissions import IsAuthenticated
-from .permissions import IsManager
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status

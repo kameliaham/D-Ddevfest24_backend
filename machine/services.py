@@ -1,5 +1,6 @@
 import requests
 
+
 def subscribe_to_machine(machine_id, callback_url):
     """
     Subscribes to a machine's data stream via a webhook.
@@ -35,8 +36,7 @@ def subscribe_all_machines():
     """
     machines = ['welding_robot_006', 'stamping_press_001', 'painting_robot_002','leak_test_005','cnc_milling_004','agv_003']
     callback_url = 'https://134d-154-121-88-199.ngrok-free.app/machine/webhook/' 
-            
-    
+
     for machine in machines:
         try:
             print("machine",machine)

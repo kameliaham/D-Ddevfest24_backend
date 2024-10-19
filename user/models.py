@@ -12,17 +12,3 @@ class UserProfile(models.Model):
      
     def __str__(self):
         return self.user.username
-    
-
-
-class Task(models.Model):
-    description = models.TextField()
-    assigned_to = models.ForeignKey(User, on_delete=models.CASCADE, limit_choices_to={'userprofile__role': 'Operator'})
-    created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name="created_tasks", limit_choices_to={'userprofile__role': 'Manager'})
-    machine = models.ForeignKey(Machine, on_delete=models.CASCADE)  # Link to Machine model
-    status = models.CharField(max_length=50, choices=[('pending', 'Pending'), ('in_progress', 'In Progress'), ('completed', 'Completed')], default='pending')
-    created_at = models.DateTimeField(auto_now_add=True)
-    deadline = models.DateTimeField()
-
-    def __str__(self):
-        return f"Task {self.id} for {self.assigned_to.username}"
