@@ -1,10 +1,6 @@
-from celery import shared_task
-import time
-from .views import subscribe_all_machines
+from background_task import background
+from .services import subscribe_all_machines  # Assuming the subscribe function is in utils.py
 
-@shared_task
-def send_machine_data_webhook():
-    """
-    This task sends machine data webhook requests every 20 seconds.
-    """
-    subscribe_all_machines()
+@background(schedule=86400)  # Reschedule this task every 24 hours (86400 seconds)
+def periodic_subscription():
+    subscribe_all_machines()  # Ensure all machines are subscribed to the webhook
