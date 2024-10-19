@@ -16,13 +16,27 @@ The project contains 4 Django apps:
    - If the data is updated, a new instance is saved.
    - Data is sent to the front end via WebSockets, with Redis-server handling WebSocket communication.
 
-3. **tasks**: 
+3. **tasks**:  
+   - This app triggers tasks when monitoring detects the need for machine maintenance or similar issues.
+   - Tasks are sent to both **managers** and **operators** working on the affected machine.
+   - Tasks go through a status workflow: **Not Started**, **In Progress**, and **Finished**.
+   - **Managers** and **operators** can change the status of the tasks.
 
-4. **notification**: 
+4. **alerts**: 
+   - The alers system is triggered in two key cases:
+     1. When monitoring detects a machine problem, such as exceeding a threshold (e.g., temperature).
+     2. When a machine issue, such as low battery, is detected.
+   - Alertss are visible to both **managers** and **operators** working on the affected machine.
+   - Only **managers** can mark the notification as 'done'.
+   - The notification system is managed using `GenericAPIView`.
+
 
 ## Setup Instructions
 
 ### 1. Install Dependencies
+
+- pip install -r requirements.txt
+
 Make sure you have the following dependencies installed:
 
 - Python 3.x
