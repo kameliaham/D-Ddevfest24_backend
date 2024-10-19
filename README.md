@@ -61,14 +61,8 @@ Forwarding https://c02a-154-121-29-131.ngrok-free.app -> http://localhost:8000
 
 2. In `services.py`, update the `subscribe_all_machines()` function with your Ngrok URL (e.g., `https://c02a-154-121-29-131.ngrok-free.app`) as the callback URL.
 
-3. Import and call the `subscribe_all_machines()` function in the Python shell:
-
-```python
-from machine.services import *
-subscribe_all_machines()
-```
-
-Alternatively, you can simply run `tasks.py`.
+3. Create the machines in your local environment by running:
+   - `python manage.py loaddata machine/fixtures/machines.json`
 
 ### 3. Set Up Redis Server on Docker
 To run Redis in a Docker container, use the following command:

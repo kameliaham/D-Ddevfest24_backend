@@ -15,7 +15,7 @@ def subscribe_to_machine(machine_id, callback_url):
         "machine": machine_id,
         "callback_url": callback_url
     }
-    print ("dataa",data)
+    print ("data",data)
 
     response = requests.post(url, json=data)
     print("Response Status Code:", response.status_code)
@@ -37,7 +37,7 @@ def subscribe_all_machines():
     machines = ['welding_robot_006', 'stamping_press_001', 'painting_robot_002','leak_test_005','cnc_milling_004','agv_003']
     
     # Replace the hardcoded Ngrok URL with the one generated when you run `ngrok http 8000`.
-    callback_url = 'https://8db6-105-235-128-12.ngrok-free.app/machine/webhook/' 
+    callback_url = 'https://c02a-154-121-29-131.ngrok-free.app/machine/webhook/' 
             
     
     for machine in machines:
