@@ -1,7 +1,6 @@
 import requests
 
 
-
 def subscribe_to_machine(machine_id, callback_url):
     """
     Subscribes to a machine's data stream via a webhook.

@@ -1,16 +1,18 @@
 # user/serializers.py
 from django.contrib.auth.models import User
 from rest_framework import serializers
-from .models import UserProfile, Task
+from .models import UserProfile
 from django.contrib.auth import password_validation
 from django.core.exceptions import ValidationError
 import random
 import string
 
+
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserProfile
         fields = ['role', 'phone_number', 'address']  
+
 
 class UserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
@@ -80,6 +82,7 @@ class OperatorRegistrationSerializer(serializers.ModelSerializer):
 
         return representation
 
+
 class ProfileUpdateSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True, required=True)
     first_name = serializers.CharField(max_length=150, required=True)
@@ -116,15 +119,3 @@ class ProfileUpdateSerializer(serializers.ModelSerializer):
 
         instance.save()
         return instance
-
-
-class TaskSerializer(serializers.ModelSerializer):
-    assigned_to = serializers.StringRelatedField()  # Display operator's username
-    created_by = serializers.StringRelatedField()  # Display manager's username
-    machine = serializers.StringRelatedField()  # Display machine's name
-
-    class Meta:
-        model = Task
-        fields = ['id', 'description', 'assigned_to', 'created_by', 'machine', 'status', 'created_at', 'deadline']
-
-

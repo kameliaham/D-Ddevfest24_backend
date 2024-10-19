@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from rest_framework import serializers
 from .models import Machine, WeldingRobot, StampingPress, PaintingRobot, AGV, CNCMachine, LeakTestMachine
 
+
 class MachineSerializer(serializers.ModelSerializer):
     class Meta:
         model = Machine

@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'machine',
     'background_task',
     'channels',
+    'alerts',
+    'tasks'
 
 ]
 

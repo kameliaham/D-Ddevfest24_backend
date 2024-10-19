@@ -20,12 +20,11 @@ class Machine(models.Model):
     machine_type = models.CharField(
         max_length=50,
         choices=[(tag.value, tag.name) for tag in MachineTypes],
-        default=MachineTypes.WELDING_ROBOT.value  
+        default=MachineTypes.WELDING_ROBOT.value
     )
+
     def __str__(self):
         return f"{self.name} ({self.machine_id})"
-  
-
 # Define the MachineData model, which stores data related to any machine.
 class MachineData(models.Model):
     machine = models.ForeignKey(Machine, on_delete=models.CASCADE)
