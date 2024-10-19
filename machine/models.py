@@ -17,8 +17,11 @@ class MachineTypes(Enum):
 class Machine(models.Model): 
     machine_id = models.CharField(max_length=100, unique=True)
     name = models.CharField(max_length=100)
-    machine_type = models.CharField(max_length=100, unique=True, choices=[(tag.name, tag.value) for tag in MachineTypes])
-
+    machine_type = models.CharField(
+        max_length=50,
+        choices=[(tag.value, tag.name) for tag in MachineTypes],
+        default=MachineTypes.WELDING_ROBOT.value  
+    )
     def __str__(self):
         return f"{self.name} ({self.machine_id})"
   

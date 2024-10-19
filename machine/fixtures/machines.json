@@ -1,4 +1,3 @@
-// python manage.py loaddata machines.json
 [
     {
         "model": "machine.machine",
@@ -6,7 +5,7 @@
         "fields": {
             "machine_id": "welding_robot_006",
             "name": "Welding Robot 006",
-            "machine_type": 1
+            "machine_type": "Welding Robot"
         }
     },
     {
@@ -15,7 +14,7 @@
         "fields": {
             "machine_id": "stamping_press_001",
             "name": "Stamping Press 001",
-            "machine_type": 2
+            "machine_type": "Stamping Press"
         }
     },
     {
@@ -24,7 +23,7 @@
         "fields": {
             "machine_id": "painting_robot_002",
             "name": "Painting Robot 002",
-            "machine_type": 3
+            "machine_type": "Painting Robot"
         }
     },
     {
@@ -33,7 +32,7 @@
         "fields": {
             "machine_id": "leak_test_005",
             "name": "Leak Test machine 005",
-            "machine_type": 4
+            "machine_type": "Leak Test Machine"
         }
     },
     {
@@ -42,7 +41,7 @@
         "fields": {
             "machine_id": "cnc_milling_004",
             "name": "CNC Milling machine 004",
-            "machine_type": 5
+            "machine_type": "CNC Milling"
         }
     },
     {
@@ -51,7 +50,7 @@
         "fields": {
             "machine_id": "agv_003",
             "name": "AGV 003",
-            "machine_type": 6
+            "machine_type": "AGV"
         }
     }
 ]
