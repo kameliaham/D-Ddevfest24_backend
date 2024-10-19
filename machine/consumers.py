@@ -21,7 +21,7 @@ class MachineDataConsumer(WebsocketConsumer):
         machine = Machine.objects.get(machine_id=machine_id)
         latest_data = MachineData.objects.filter(machine=machine).order_by('-timestamp').first()
 
-        # Envoyer les données au client
+        # Envoyer les données 
         if latest_data:
             self.send(text_data=json.dumps({
                 'machine_id': machine.machine_id,
