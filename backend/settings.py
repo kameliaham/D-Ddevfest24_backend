@@ -49,15 +49,6 @@ DJANGO_WEBHOOK = {
     'MODELS': ['machine.Machine'],  # Subscribe to the 'Machine' model
 }
 
-from celery.schedules import timedelta
-
-CELERY_BROKER_URL = 'redis://localhost:6379/0'
-CELERY_ACCEPT_CONTENT = ['json']
-CELERY_TASK_SERIALIZER = 'json'
-
-CELERY_TIMEZONE = 'Africa/Algiers' 
-CELERY_TASK_TRACK_STARTED = True
-
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
