@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'user',
     'machine',
     'background_task',
+
 ]
 
 DJANGO_WEBHOOK = {
