@@ -1,0 +1,1 @@
+Add machines : python manage.py loaddata machines.json

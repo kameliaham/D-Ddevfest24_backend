@@ -14,6 +14,7 @@ class UserProfile(models.Model):
         return self.user.username
     
 
+
 class Task(models.Model):
     description = models.TextField()
     assigned_to = models.ForeignKey(User, on_delete=models.CASCADE, limit_choices_to={'userprofile__role': 'Operator'})

@@ -34,7 +34,8 @@ def subscribe_all_machines():
     Subscribes to all required machines.
     """
     machines = ['welding_robot_006', 'stamping_press_001', 'painting_robot_002','leak_test_005','cnc_milling_004','agv_003']
-    callback_url = 'http://127.0.0.1:8000/machine/webhook/' 
+    callback_url = 'https://134d-154-121-88-199.ngrok-free.app/machine/webhook/' 
+            
     
     for machine in machines:
         try:
