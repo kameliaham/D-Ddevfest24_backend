@@ -2,7 +2,6 @@ from django.db import models
 from django.utils import timezone
 
 
-
 class Machine(models.Model): 
     machine_id = models.CharField(max_length=100, unique=True)
     name = models.CharField(max_length=100)
@@ -10,7 +9,8 @@ class Machine(models.Model):
 
     def __str__(self):
         return f"{self.name} ({self.machine_id})"
-    
+
+
 class WeldingRobot(Machine):
     weld_temperature = models.FloatField()  # °C
     weld_current = models.FloatField()  # A
@@ -38,6 +38,7 @@ class StampingPress(Machine):
     noise_level = models.FloatField()  # dB
     lubrication_flow_rate = models.FloatField()  # ml/min
 
+
 class PaintingRobot(Machine):
     spray_pressure = models.FloatField()  # bar
     paint_thickness = models.FloatField()  # µm
@@ -51,6 +52,7 @@ class PaintingRobot(Machine):
     booth_airflow_velocity = models.FloatField()  # m/s
     solvent_concentration = models.FloatField()  # %
 
+
 class AGV(Machine):
     location = models.JSONField()  # Spatial coordinates (x, y, z)
     battery_level = models.FloatField()  # %
@@ -62,6 +64,7 @@ class AGV(Machine):
     vibration_level = models.FloatField()  # mm/s
     temperature = models.FloatField()  # °C
     wheel_rotation_speed = models.FloatField()  # RPM
+
 
 class CNCMachine(Machine):
     spindle_speed = models.IntegerField()  # RPM

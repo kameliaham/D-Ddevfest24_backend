@@ -16,9 +16,9 @@ from rest_framework.views import APIView
 from rest_framework import status
 
 
-
 class CustomTokenObtainPairView(TokenObtainPairView):
     pass
+
 
 class TokenRefreshView(TokenRefreshView):
     pass
@@ -26,7 +26,8 @@ class TokenRefreshView(TokenRefreshView):
 
 class RegisterOperatorView(generics.CreateAPIView):
     serializer_class = OperatorRegistrationSerializer  
-    permission_classes = [AllowAny]  
+    permission_classes = [AllowAny]
+
     def perform_create(self, serializer):
         print(f"Validated data: {serializer.validated_data}")  
 

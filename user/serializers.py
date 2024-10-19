@@ -7,10 +7,12 @@ from django.core.exceptions import ValidationError
 import random
 import string
 
+
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserProfile
         fields = ['role', 'phone_number', 'address']  
+
 
 class UserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
@@ -80,6 +82,7 @@ class OperatorRegistrationSerializer(serializers.ModelSerializer):
 
         return representation
 
+
 class ProfileUpdateSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True, required=True)
     first_name = serializers.CharField(max_length=150, required=True)
@@ -126,5 +129,3 @@ class TaskSerializer(serializers.ModelSerializer):
     class Meta:
         model = Task
         fields = ['id', 'description', 'assigned_to', 'created_by', 'machine', 'status', 'created_at', 'deadline']
-
-
